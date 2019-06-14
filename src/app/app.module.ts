@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ImageBoxComponent } from './image-box/image-box.component';
 import { HomeComponent } from './home/home.component';
+import { ActionBarComponent } from './action-bar/action-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ImageBoxComponent,
-    HomeComponent
+    HomeComponent,
+    ActionBarComponent
   ],
   imports: [
     BrowserModule,

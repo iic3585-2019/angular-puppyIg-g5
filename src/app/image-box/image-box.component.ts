@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ImageBoxComponent implements OnInit {
 
   @Input() image_url: String = "https://via.placeholder.com/400x300";
+  likes: number = 0;
 
   constructor() { }
 
