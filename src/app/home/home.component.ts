@@ -1,5 +1,7 @@
 import { ApiService } from './../api.service';
 import { Component, OnInit } from '@angular/core';
+// import {Store} from '@ngxs/store';
+// import { AddTutorial } from './../store/actions/tutorial.actions';
 
 @Component({
   selector: 'app-home',

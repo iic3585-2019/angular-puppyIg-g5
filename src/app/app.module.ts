@@ -8,6 +8,11 @@ import { ImageBoxComponent } from './image-box/image-box.component';
 import { HomeComponent } from './home/home.component';
 import { ActionBarComponent } from './action-bar/action-bar.component';
 
+//NGXS Store
+import {NgxsModule} from '@ngxs/store'
+import {TutorialState} from './store/state/tutorial.state'
+import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +22,10 @@ import { ActionBarComponent } from './action-bar/action-bar.component';
   ],
   imports: [
     BrowserModule,
+    NgxsModule.forRoot([
+      TutorialState
+    ]),
+    NgxsLoggerPluginModule.forRoot(),
     AppRoutingModule,
     HttpClientModule
   ],
