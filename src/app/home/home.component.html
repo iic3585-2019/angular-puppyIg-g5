@@ -1,9 +1,9 @@
-ESTE ES EL HOME OWO
+<h1 class="subtitle">Tus perritos 🐶</h1>
 
-<app-image-box> </app-image-box>
+<div class="columns is-centered">
+    <div class="column is-10 is-6-widescreen ">
+        <app-image-box [image_url]="dog" *ngFor="let dog of images">
 
-<ul>
-    <li *ngFor="let dog of images">
-        <img [src]="dog" />
-    </li>
-</ul>
+        </app-image-box>
+    </div>
+</div>
