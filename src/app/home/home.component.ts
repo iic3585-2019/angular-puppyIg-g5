@@ -16,13 +16,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.api.loadImages().subscribe(x => {
+      console.log(x);
       if (x['status'] === "success") {
         x['message'].forEach(element => {
           this.images.push(element);
         });
       }
-
-      console.log(this.images);
     })
   }
 

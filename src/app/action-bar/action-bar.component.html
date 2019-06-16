@@ -1,7 +1,9 @@
 <div class="card-footer">
   <div class="card-footer-item">
     <button class="button is-fullwidth">
-      Like
+      <span [ngClass]="{'is-liked': is_liked}">
+        Me gusta
+      </span>
     </button>
   </div>
   <div class="card-footer-item">
