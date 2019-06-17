@@ -12,11 +12,9 @@ import { Observable } from 'rxjs'
 })
 export class HomeComponent implements OnInit {
 
-  tutorials$: Observable<Tutorial>
   puppies$: Observable<Puppy>
 
   constructor(private api: ApiService, private store: Store) { 
-    this.tutorials$ = this.store.select(state => state.tutorials.tutorials)
     this.puppies$ = this.store.select(state => state.puppies.puppies)
   }
 
