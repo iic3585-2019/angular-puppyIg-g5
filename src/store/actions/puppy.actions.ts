@@ -6,16 +6,10 @@ export class AddPuppy{
     constructor (public payload: Puppy[]){}
 }
 
-export class RemovePuppy{
-    static readonly type = '[PUPPY] Remove'
-
-    constructor (public payload: Puppy){}
-}
-
 export class LikePuppy{
     static readonly type = '[PUPPY] Like'
 
-    constructor (public payload: Puppy){}
+    constructor (public payload: {puppy:Puppy, like:boolean}){}
 }
 
 export class CommentPuppy{

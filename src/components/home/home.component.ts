@@ -1,10 +1,8 @@
 import { AddPuppy } from './../../store/actions/puppy.actions';
 import { Puppy } from './../../store/models/puppy.model';
-import { Tutorial } from '../../store/models/tutorial.model';
 import { ApiService } from '../../services/api/api.service';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { AddTutorial } from '../../store/actions/tutorial.actions';
 import { Observable } from 'rxjs'
 
 @Component({
@@ -22,21 +20,19 @@ export class HomeComponent implements OnInit {
     this.puppies$ = this.store.select(state => state.puppies.puppies)
   }
 
-  addTutorial(name, url){
-    this.store.dispatch(new AddTutorial({name:name, url:url}))
-  }
-
   addPuppy(puppies){
     this.store.dispatch(new AddPuppy(puppies))
   }
 
   ngOnInit() {
     let images: Puppy[] = [];
+    let likes: number;
     this.api.loadImages().subscribe(x => {
       console.log(x);
       if (x['status'] === "success") {
         x['message'].forEach(element => {
-          images.push({url:element, liked:false, comments:[]});
+          likes = Math.floor(Math.random() * (300 - 20 + 1)) + 20;
+          images.push({url:element, likes:likes, comments:[], liked:false});
         });
       }
       this.addPuppy(images)

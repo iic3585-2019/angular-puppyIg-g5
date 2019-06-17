@@ -1,5 +1,6 @@
 export interface Puppy{
     url: string;
-    liked: boolean;
+    likes: number;
+    liked;
     comments: Array<string>;
 }

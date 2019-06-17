@@ -12,7 +12,6 @@ import { LikedDogsComponent } from './../components/liked-dogs/liked-dogs.compon
 
 //NGXS Store
 import {NgxsModule} from '@ngxs/store'
-import {TutorialState} from '../store/state/tutorial.state'
 import { PuppyState } from './../store/state/puppy.state';
 import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin'
 
@@ -28,7 +27,6 @@ import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin'
   imports: [
     BrowserModule,
     NgxsModule.forRoot([
-      TutorialState,
       PuppyState
     ]),
     NgxsLoggerPluginModule.forRoot(),

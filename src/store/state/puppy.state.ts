@@ -1,5 +1,5 @@
 import { Puppy } from './../models/puppy.model';
-import { AddPuppy, RemovePuppy, LikePuppy, CommentPuppy } from './../actions/puppy.actions';
+import { AddPuppy, LikePuppy, CommentPuppy } from './../actions/puppy.actions';
 import {State, Action, StateContext, Selector} from '@ngxs/store'
 
 export class PuppyStateModel{
@@ -21,17 +21,16 @@ export class PuppyState{
         })
     }
 
-    @Action(RemovePuppy)
-    remove({getState, patchState}: StateContext<PuppyStateModel>, {payload}:RemovePuppy ){
-        patchState({
-            puppies: getState().puppies.filter(a => a != payload)
-        })
-    }
-
     @Action(LikePuppy)
     like({getState, patchState}: StateContext<PuppyStateModel>, {payload}:LikePuppy ){
-        let pos:number = getState().puppies.indexOf(payload)
+        let pos:number = getState().puppies.indexOf(payload.puppy)
         let new_state:Puppy[] = getState().puppies
+        if (payload.like) {
+            new_state[pos].likes += 1
+        }
+        else{
+            new_state[pos].likes -= 1
+        }
         new_state[pos].liked = !new_state[pos].liked
         patchState({
             puppies: [...new_state]

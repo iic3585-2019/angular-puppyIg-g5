@@ -18,7 +18,12 @@ export class ActionBarComponent implements OnInit {
   ngOnInit() {}
 
   like(dog){
-    this.store.dispatch(new LikePuppy(dog))
+    if (!this.dog.liked) {
+      this.store.dispatch(new LikePuppy({puppy:dog,like:true}))
+    }
+    else{
+      this.store.dispatch(new LikePuppy({puppy:dog,like:false}))
+    }
   }
 
   open_comment(){
