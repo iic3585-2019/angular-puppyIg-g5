@@ -1,6 +1,6 @@
 import {State, Action, StateContext, Selector} from '@ngxs/store'
-import { AddTutorial, RemoveTutorial } from './../actions/tutorial.actions';
-import { Tutorial } from './../models/tutorial.model';
+import { AddTutorial, RemoveTutorial } from '../actions/tutorial.actions';
+import { Tutorial } from '../models/tutorial.model';
 
 export class TutorialStateModel{
     tutorials: Tutorial[]

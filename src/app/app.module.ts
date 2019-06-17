@@ -4,13 +4,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ImageBoxComponent } from './image-box/image-box.component';
-import { HomeComponent } from './home/home.component';
-import { ActionBarComponent } from './action-bar/action-bar.component';
+import { ImageBoxComponent } from '../components/image-box/image-box.component';
+import { HomeComponent } from '../components/home/home.component';
+import { ActionBarComponent } from '../components/action-bar/action-bar.component';
 
 //NGXS Store
 import {NgxsModule} from '@ngxs/store'
-import {TutorialState} from './store/state/tutorial.state'
+import {TutorialState} from '../store/state/tutorial.state'
+import { PuppyState } from './../store/state/puppy.state';
 import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin'
 
 @NgModule({
@@ -23,7 +24,8 @@ import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin'
   imports: [
     BrowserModule,
     NgxsModule.forRoot([
-      TutorialState
+      TutorialState,
+      PuppyState
     ]),
     NgxsLoggerPluginModule.forRoot(),
     AppRoutingModule,
