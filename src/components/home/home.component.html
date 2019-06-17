@@ -1,20 +1,8 @@
 <h1 class="subtitle">Tus perritos 🐶</h1>
-<div>
-    <input type="text" placeholder="name" #name>
-    <input type="text" placeholder="url" #url>
-
-    <button (click)="addTutorial(name.value, url.value)">add tutorial</button>
-
-    <ul>
-        <li *ngFor="let tutorial of tutorials$ | async">
-            <p>{{tutorial.name}}</p>
-        </li>
-    </ul>
-</div>
 
 <div class="columns is-centered">
     <div class="column is-10 is-7-desktop is-6-widescreen">
-        <app-image-box [image_url]="dog.url" *ngFor="let dog of puppies$ | async">
+        <app-image-box [dog]="dog" *ngFor="let dog of puppies$ | async">
 
         </app-image-box>
     </div>

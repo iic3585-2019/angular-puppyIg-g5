@@ -11,3 +11,9 @@ export class RemovePuppy{
 
     constructor (public payload: Puppy){}
 }
+
+export class LikePuppy{
+    static readonly type = '[PUPPY] Like'
+
+    constructor (public payload: Puppy){}
+}

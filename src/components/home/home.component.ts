@@ -14,7 +14,6 @@ import { Observable } from 'rxjs'
 })
 export class HomeComponent implements OnInit {
 
-  
   tutorials$: Observable<Tutorial>
   puppies$: Observable<Puppy>
 
@@ -37,7 +36,7 @@ export class HomeComponent implements OnInit {
       console.log(x);
       if (x['status'] === "success") {
         x['message'].forEach(element => {
-          images.push({url:element, liked:false, comments:[]});
+          images.push({url:element, liked:false, comments:["hee hee", "jijsdfajsdk"]});
         });
       }
       this.addPuppy(images)

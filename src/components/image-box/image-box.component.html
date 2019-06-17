@@ -3,7 +3,7 @@
   <div class="card">
     <div class="card-image">
       <figure class="image is-4by3">
-        <img [src]="image_url" alt="Placeholder image">
+        <img [src]="dog.url" alt="Placeholder image">
       </figure>
     </div>
     <div class="card-content">
@@ -13,14 +13,20 @@
         </div>
       </div>
 
-      <span class="is-size-6">
-        Cras lacinia dolor quis magna dapibus iaculis. Ut id iaculis mauris. Sed luctus est mi, a posuere lectus aliquet
-        eu. Mauris aliquam felis purus, vel tincidunt augue efficitur id.
-      </span>
-
+      <div *ngIf="dog.comments.length != 0; else elseTemplate">
+        <p class="is-size-6" *ngFor="let comment of dog.comments">
+          Comentario: {{comment}}
+        </p>  
+      </div>
+      
+      <ng-template #elseTemplate>
+        <span class="is-size-6">
+          Sin comentarios
+        </span>
+      </ng-template>
 
     </div>
 
-    <app-action-bar></app-action-bar>
+    <app-action-bar [dog]="dog"></app-action-bar>
   </div>
 </div>

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { LikePuppy } from './../../store/actions/puppy.actions';
+import { Store } from '@ngxs/store';
+import { Component, OnInit, Input } from '@angular/core';
+import { Puppy } from 'src/store/models/puppy.model';
 
 @Component({
   selector: 'app-action-bar',
@@ -7,13 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActionBarComponent implements OnInit {
 
-  // TODO: Cuando se de like modificar el booleano is_liked para que el html de
-  // ese componente resalte el botón
-  is_liked: boolean = true;
+  @Input() dog: Puppy;  
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit() {
+
+  }
+
+  like(){
+    this.store.dispatch(new LikePuppy(this.dog))
   }
 
 }
