@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
       console.log(x);
       if (x['status'] === "success") {
         x['message'].forEach(element => {
-          images.push({url:element, liked:false, comments:["hee hee", "jijsdfajsdk"]});
+          images.push({url:element, liked:false, comments:[]});
         });
       }
       this.addPuppy(images)

@@ -1,13 +1,13 @@
 <div class="card-footer">
   <div class="card-footer-item">
-    <button (click)="like()" class="button is-fullwidth">
+    <button (click)="like(dog)" class="button is-fullwidth">
       <span [ngClass]="{'is-liked': dog.liked}">
         Me gusta
       </span>
     </button>
   </div>
   <div class="card-footer-item">
-    <button class="button is-fullwidth" disabled>
+    <button (click)="open_comment()" class="button is-fullwidth">
       Comentar
     </button>
   </div>
@@ -15,5 +15,13 @@
     <button class="button is-fullwidth" disabled>
       Compartir
     </button>
+  </div>
+</div>
+<div class="card-footer" *ngIf="comment">
+  <div class="card-footer-item">
+    <input type="text" placeholder="Ingresa tu comentario..." class="input is-primary" #comment>
+    <button (click)="commentPuppy(comment.value, dog)" class="button is-success" >
+        Enviar
+      </button>
   </div>
 </div>

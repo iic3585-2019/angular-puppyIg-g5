@@ -1,5 +1,5 @@
 import { Puppy } from './../models/puppy.model';
-import { AddPuppy, RemovePuppy, LikePuppy } from './../actions/puppy.actions';
+import { AddPuppy, RemovePuppy, LikePuppy, CommentPuppy } from './../actions/puppy.actions';
 import {State, Action, StateContext, Selector} from '@ngxs/store'
 
 export class PuppyStateModel{
@@ -31,6 +31,13 @@ export class PuppyState{
     @Action(LikePuppy)
     like({getState, patchState}: StateContext<PuppyStateModel>, {payload}:LikePuppy ){
         payload.liked = !payload.liked 
+        patchState({
+            puppies: [...getState().puppies, payload]
+        })
+    }
+
+    @Action(CommentPuppy)
+    comment({getState, patchState}: StateContext<PuppyStateModel>, {payload}:CommentPuppy ){
         patchState({
             puppies: [...getState().puppies, payload]
         })
