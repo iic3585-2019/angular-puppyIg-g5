@@ -20,7 +20,7 @@
 <div class="card-footer" *ngIf="comment">
   <div class="card-footer-item">
     <input type="text" placeholder="Ingresa tu comentario..." class="input is-primary" #comment>
-    <button (click)="commentPuppy(comment.value, dog)" class="button is-success" >
+    <button (click)="commentPuppy(dog, comment.value)" class="button is-success" >
         Enviar
       </button>
   </div>

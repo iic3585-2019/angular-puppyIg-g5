@@ -30,16 +30,21 @@ export class PuppyState{
 
     @Action(LikePuppy)
     like({getState, patchState}: StateContext<PuppyStateModel>, {payload}:LikePuppy ){
-        payload.liked = !payload.liked 
+        let pos:number = getState().puppies.indexOf(payload)
+        let new_state:Puppy[] = getState().puppies
+        new_state[pos].liked = !new_state[pos].liked
         patchState({
-            puppies: [...getState().puppies, payload]
+            puppies: [...new_state]
         })
     }
 
     @Action(CommentPuppy)
     comment({getState, patchState}: StateContext<PuppyStateModel>, {payload}:CommentPuppy ){
+        let pos:number = getState().puppies.indexOf(payload.puppy)
+        let new_state:Puppy[] = getState().puppies
+        new_state[pos].comments.push(payload.comment)
         patchState({
-            puppies: [...getState().puppies, payload]
+            puppies: [...new_state]
         })
     }
 }

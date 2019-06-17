@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { ImageBoxComponent } from '../components/image-box/image-box.component';
 import { HomeComponent } from '../components/home/home.component';
 import { ActionBarComponent } from '../components/action-bar/action-bar.component';
+import { NavbarComponent } from 'src/components/navbar/navbar.component';
+import { LikedDogsComponent } from './../components/liked-dogs/liked-dogs.component';
 
 //NGXS Store
 import {NgxsModule} from '@ngxs/store'
@@ -19,7 +21,9 @@ import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin'
     AppComponent,
     ImageBoxComponent,
     HomeComponent,
-    ActionBarComponent
+    ActionBarComponent,
+    NavbarComponent,
+    LikedDogsComponent
   ],
   imports: [
     BrowserModule,

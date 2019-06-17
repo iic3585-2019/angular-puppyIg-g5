@@ -21,5 +21,5 @@ export class LikePuppy{
 export class CommentPuppy{
     static readonly type = '[PUPPY] Comment'
 
-    constructor (public payload: Puppy){}
+    constructor (public payload: {puppy:Puppy, comment:string}){}
 }

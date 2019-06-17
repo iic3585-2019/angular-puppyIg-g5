@@ -25,9 +25,9 @@ export class ActionBarComponent implements OnInit {
     this.comment = !this.comment
   }
 
-  commentPuppy(comment, dog){
-    dog.comments.push(comment)
-    this.store.dispatch(new CommentPuppy(dog))
+  commentPuppy(dog, comment){
+    this.store.dispatch(new CommentPuppy({puppy:dog, comment:comment}))
+    this.open_comment()
   }
 
 }

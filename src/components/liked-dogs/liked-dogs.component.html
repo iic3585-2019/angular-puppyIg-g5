@@ -1,7 +1,10 @@
 <div class="columns is-centered">
     <div class="column is-10 is-7-desktop is-6-widescreen">
-        <app-image-box [dog]="dog" *ngFor="let dog of puppies$ | async | slice:-10 ">
+      <div *ngFor="let dog of puppies$ | async">
+        <app-image-box [dog]="dog" *ngIf="dog.liked">
 
         </app-image-box>
+      </div>
+        
     </div>
 </div>
